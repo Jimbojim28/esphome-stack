@@ -1,0 +1,25 @@
+services:
+  esphome:
+    image: ghcr.io/esphome/esphome:stable
+    container_name: esphome
+    network_mode: host
+    restart: unless-stopped
+
+    volumes:
+      - ./config:/config
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - TZ=America/Montreal
+
+  esphome-discovery:
+    build:
+      context: ./scanner
+    container_name: esphome-discovery
+    network_mode: host
+    restart: unless-stopped
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - TZ=America/Montreal
+      - SCAN_INTERVAL=60
+      - WEB_PORT=8099
