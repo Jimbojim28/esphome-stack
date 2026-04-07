@@ -19,6 +19,7 @@ services:
     restart: unless-stopped
     volumes:
       - /etc/localtime:/etc/localtime:ro
+      - ./scanner/app.py:/app/app.py
     environment:
       - TZ=America/Montreal
       - SCAN_INTERVAL=60
