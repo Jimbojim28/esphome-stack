@@ -6,5 +6,5 @@ Small Dockerized ESPHome discovery service.
 
 ```bash
 git clone https://github.com/Jimbojim28/esphome-stack.git
-cd esphome-discovery
+cd esphome-stack
 docker compose up -d --build
